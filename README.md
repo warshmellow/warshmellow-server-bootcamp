@@ -118,6 +118,9 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 
 ### OpenResty + Kafka
 
+## Creating Value
+### Metrics
+
 ## Design Problems
 ### kinda RESTful APIs
 ### bit.ly
