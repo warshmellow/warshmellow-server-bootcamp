@@ -29,6 +29,7 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 ### Always Be Committing (ABC)
 ### Clone/Pull/Push
 ### Branches and Commit Numbers
+### Pull Requests - The way any work gets done
 ### Revert
 ### Reset
 
