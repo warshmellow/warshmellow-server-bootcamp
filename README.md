@@ -83,6 +83,12 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 ### How a Worker handles multiple requests as non-blocking
 ### lua code cache and Worker-local cache
 
+## HTTP Requests
+### HTTP Verbs
+### JSON
+### Response Codes
+### Kinda RESTful API
+
 ## OpenResty + Cassandra
 ### Lua-Cassandra
 ### Data Access Layer Pattern
