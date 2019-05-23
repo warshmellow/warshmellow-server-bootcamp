@@ -20,6 +20,7 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 #### Any vs Quorum vs All
 #### CAP Theorem
 #### ACID (SQL) vs BASE (NoSQL)
+#### Columnar DBs and the Way Data is Laid Out
 
 ### Batch INSERT/SELECT - it's not what you think
 #### The lifecycle of a SELECT
