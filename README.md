@@ -74,6 +74,7 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 ## Docker and OpenResty
 ### Install
 ### Postman/Curl
+### newman - Automated Postman
 ### nginx.conf
 ### sites-available/default
 ### lua file structure
