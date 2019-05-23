@@ -21,7 +21,8 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 #### CAP Theorem
 #### ACID (SQL) vs BASE (NoSQL)
 
-### Batch INSERT - it's not what you think
+### Batch INSERT/SELECT - it's not what you think
+#### The lifecycle of a SELECT
 
 ## Git and Version Control
 ### Always Be Committing (ABC)
