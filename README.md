@@ -10,8 +10,9 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 #### Clustering Keys
 
 #### Queries
-##### INSERT
+##### INSERT and UPDATE
 ##### SELECT
+##### DELETE
 
 #### Full Table Scans
 
@@ -21,6 +22,8 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 #### CAP Theorem
 #### ACID (SQL) vs BASE (NoSQL)
 #### Columnar DBs and the Way Data is Laid Out
+
+### What DELETE Actually Does: Tombstones and Compaction
 
 ### Batch INSERT/SELECT - it's not what you think
 #### The lifecycle of a SELECT
