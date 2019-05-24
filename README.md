@@ -20,12 +20,22 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 #### Consistency
 #### Any vs Quorum vs All
 #### CAP Theorem
+Roughly speaking, the CAP Theorem says that if you have a network partition, you cannot guarantee the system to be both fully available and fully consistent by the time the partition is finished. Intuitively this makes sense: you'll have to spend a nonzero amount of downtime to ensure access only when fully consistent.
+
+This means you'll always have to consider balancing high availability and high consistency.
+A single SQL database that serializes queries will always be highly consistent, but the thing could crash. On the other hand, a network of 1000 identical machines that allow read from any machine will have high availability but inconsistent values on reads from two different machines, even on the same timestamp.
+
 #### ACID (SQL) vs BASE (NoSQL)
 #### Columnar DBs and the Way Data is Laid Out
 
 ### What DELETE Actually Does: Tombstones and Compaction
+DELETE (and setting TTL) does not immediately delete a row from a table. It simply marks it with a tombstone. Reads will skip the value. Periodically rows marked with a tombstone will be truly deleted from storage automatically. This process is called compaction.
+
+Note that most tables have a tombstone limit. Once the limit is reached, Cassandra refuses any new queries on the table, and you have to wait until compaction. This is done to roughly ensure performance range for reads and prevent running out of memory. That is why best practice is not to delete too much, or to do a "soft" or fake delete by manually marking rows as "deleted". In the second case Cassandra's compaction is never invoked of course.
 
 ### Batch INSERT/SELECT - it's not what you think
+#### Guarantees
+Batch INSERT/SELECT ensure atomicity, but only single partition batches ensure isolation as well.
 #### The lifecycle of a SELECT
 
 ## Git and Version Control
@@ -88,7 +98,13 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 ## Nginx
 ### Worker Model
 ### How a Worker handles multiple requests as non-blocking
+Recall that the Nginx worker runs in a single thread and does not fork any new thread. So concurrency would be entirely due to context switches. OpenResty knows to swap to a new task when it hits a specific call to lua-socket. Upon doing so (usually this is a call to an external database or API), it knows it has to wait and it switches. Once the socket gets a response back to OpenResty it'll know to switch back. 
+
 ### lua code cache and Worker-local cache
+nginx.conf has a setting boolean lua code cache. Basically when OpenResty starts, it runs all the modules. If lua code cache is on, it caches each environment after each of the modules have run. So if at module top-level you have a table holding something, it'll stay there in the environment when actual module methods are called. It can even be changed! You can see how this is a way to implement a simple worker-local cache.
+
+Exercise: Implement a cached table in a module that lazily expires every minute.
+Exercise: Implement a cache with Google Guava's Cache's semantics
 
 ## HTTP Requests
 ### HTTP Verbs
