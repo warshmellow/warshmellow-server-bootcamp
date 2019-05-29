@@ -137,6 +137,8 @@ Exercise: Implement a cache with Google Guava's Cache's semantics
 ### Data Access Layer Pattern
 ### Timing Queries
 
+Despite what your teammates may think about the cost of table creation, iteration and string/number arithmetic, time spent in handling an http request is overwhelmingly dominated by network calls to storage, by several orders of magnitude (look up standard estimate).
+
 ## Prometheus - Time Series for your monitoring
 ### Time Series
 ### Tags
