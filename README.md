@@ -88,7 +88,7 @@ Batch INSERT/SELECT ensure atomicity, but only single partition batches ensure i
 ### Busted and Testing
 #### assert.are.equal
 #### assert.are.same
-### Step-through Debug
+### Step-through Debug using Mobdebug + Lua Plugin for IntelliJ
 
 ### Modules
 #### Modules of Static Functions
@@ -137,7 +137,7 @@ Exercise: Implement a cache with Google Guava's Cache's semantics
 ### Data Access Layer Pattern
 ### Timing Queries
 
-## Prometheus
+## Prometheus - Time Series for your monitoring
 ### Time Series
 ### Tags
 ### Queries
@@ -148,14 +148,14 @@ Exercise: Implement a cache with Google Guava's Cache's semantics
 ### Grafana
 #### Make a chart
 
-### Kibana
+## Kibana - Search Engine for your logs
 #### Note your VPC
 #### Find your error logs
 
-### Kafka
-#### Topics
+## Kafka
+### Topics
 
-### OpenResty + Kafka
+## OpenResty + Kafka
 
 ## Creating Value
 ### Metrics
