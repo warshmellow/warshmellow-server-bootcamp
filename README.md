@@ -5,12 +5,32 @@ Notes for a Server Team Bootcamp (Cassandra and lua OpenResty)
 ### Install
 
 ### Tables - Logical Model
+
+The fundamental object in Cassandra is the Table. It is roughly a souped up key-value store that holds entities that must conform to a schema. This schema is defined by a list of columns and their data types. Typical types are here null-able versions of: text, number, boolean, datetime, as well as Collection types thereof: Maps, List, Set.
+
+The value is the entity itself: the full set of columns and their values. We alternatively call this a `row`.
+
+The key is a subset of columns.
+
+The fundamental restriction Cassandra places on this key is: you can only SELECT having first specified the precise value of the a fixed subset of the key called the `Partition Key`. All other SELECTs are deemed full-table scans and are usually forbidden by default.
+
+Furthermore, reads are optimized for getting all the values for a single fixed partition key, or a single-partition read. In consequence, there is no optimization for selecting from multiple partitions in a single query.
+
 #### Partition Keys
+
+Logically, the table is one big collection but it should really be thought of as mini collections partitioned (yes, that's why this word is used) by the entries in the partition key.
 
 #### Clustering Keys
 
+#### The Only Way is Denormalization
+
+There is no way of doing JOINs in Cassandra. Another way of putting it is there is no way of enforcing normalization using foreign key constraints like in SQL. To normalize data roughly means to be able to track all references between tables and ensure changes in one table is propagated to all refrences. Data in Cassandra is thus said to be `denormalized`. 
+
+The upside is Cassandra's performance profile. The downside(?) is you have to deside applications from the ground up to account for denormalization.
+
 #### Queries
 ##### INSERT and UPDATE
+##### Conditional INSERT and UPDATE
 ##### SELECT
 ##### DELETE
 
