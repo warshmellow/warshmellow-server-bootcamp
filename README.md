@@ -135,6 +135,11 @@ Exercise: Implement a cache with Google Guava's Cache's semantics
 ### Response Codes
 ### Kinda RESTful API
 
+## Authentication - Tokens, Tenant Credentials and Client Credentials
+### HTTP Manager and the HTTP Context
+### JWT (token format)
+### Tenant vs Client Credentials
+
 ## OpenResty + Cassandra
 ### Lua-Cassandra
 ### Data Access Layer Pattern
