@@ -104,6 +104,9 @@ Batch INSERT/SELECT ensure atomicity, but only single partition batches ensure i
 #### Testing and OOP
 ##### Mocks and Stubs
 
+#### Exercises
+With teammates, do all the exercises in this [pdf](http://elementsofprogramminginterviews.com/sample/epilight_python_new.pdf) using Lua 5.1.
+
 ## Docker and OpenResty
 ### Install
 ### Postman/Curl
